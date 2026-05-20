@@ -31,8 +31,10 @@ To design, deploy, and harden a secure enterprise network infrastructure entirel
 
 ---
 
-### Phase 2: Active Directory Domain Services (AD DS) Installation
-*Status: In Progress...*
-1. Initiated the installation of the **Active Directory Domain Services** binary roles via Windows Server Manager.
-2. Configured a fresh enterprise forest (`labdomain.local` domain topology) and initiated active server promotion.
+## Phase 2: Active Directory Domain Services (AD DS) Installation
+*Status: Complete*
 
+1. **Role Provisioning:** Installed the Active Directory Domain Services (AD DS) binary architecture via Windows Server Manager.
+2. **Forest Promotion:** Promoted the server instance to a primary Domain Controller, establishing the `labdomain.local` root forest topology.
+3. **Automated Provisioning:** Executed an administrative PowerShell automation script to dynamically build out the enterprise tree structure, provisioning core Organizational Units (OUs) including *Information Technology, Accounting, Marketing, Human Resources,* and *Executive*.
+4. **Bulk Identity Injection:** Automated the creation of simulated employee corporate accounts, injecting them into their respective departmental OUs with pre-configured secure authentication profiles.
