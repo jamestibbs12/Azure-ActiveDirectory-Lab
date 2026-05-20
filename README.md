@@ -21,5 +21,18 @@ To design, deploy, and harden a secure enterprise network infrastructure entirel
 ## Progress Log
 
 ### Phase 1: Cloud Infrastructure Provisioning
-*Status: Staging...*
+*Status: Complete*
+
+1. **Resource Group Isolation:** Created `ActiveDirectory-Lab-RG` to contain all network and compute resources, enabling clean lifecycle management.
+2. **Virtual Network (VNet) Topology:** Designed `AD-VNet` utilizing a `10.0.0.0/16` address space with a default subnet (`10.0.0.0/24`) to establish a secure enterprise boundary.
+3. **Compute Provisioning:** Deployed a Windows Server 2022 instance named `DomainController` leveraging a `Standard_DC1ds_v3` size (1 vCPU, 8 GiB RAM) to guarantee stable performance for directory operations.
+4. **Network Hardening & Static IP:** Modified the Domain Controller's network interface card from a dynamic lease to a **Static Internal IP assignment** (`10.0.0.4`) to maintain consistent DNS resolution.
+5. **Custom DNS Routing:** Altered the entire VNet's configuration from default Azure DNS to **Custom DNS**, pointing directly to `10.0.0.4` to ensure future domain client joins resolve correctly.
+
+---
+
+### Phase 2: Active Directory Domain Services (AD DS) Installation
+*Status: In Progress...*
+1. Initiated the installation of the **Active Directory Domain Services** binary roles via Windows Server Manager.
+2. Configured a fresh enterprise forest (`labdomain.local` domain topology) and initiated active server promotion.
 
