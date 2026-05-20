@@ -38,3 +38,13 @@ To design, deploy, and harden a secure enterprise network infrastructure entirel
 2. **Forest Promotion:** Promoted the server instance to a primary Domain Controller, establishing the `labdomain.local` root forest topology.
 3. **Automated Provisioning:** Executed an administrative PowerShell automation script to dynamically build out the enterprise tree structure, provisioning core Organizational Units (OUs) including *Information Technology, Accounting, Marketing, Human Resources,* and *Executive*.
 4. **Bulk Identity Injection:** Automated the creation of simulated employee corporate accounts, injecting them into their respective departmental OUs with pre-configured secure authentication profiles.
+
+---
+
+## Phase 3: Client Workstation Provisioning & Domain Integration
+*Status: Complete*
+
+1. **Client OS Provisioning:** Deployed a Windows 11 Enterprise virtual machine instance named `Client-Workstation` using a `Standard_DC1ds_v3` compute tier to simulate a corporate end-user endpoint.
+2. **Network Alignment:** Attached the workstation directly to `AD-VNet`, allowing it to automatically inherit the custom DNS routing pointing to the Domain Controller (`10.0.0.4`).
+3. **Enterprise Domain Join:** Modified the workstation's security boundary from a local workgroup to the `labdomain.local` domain. Authenticated using domain administrator credentials to establish a secure trust relationship.
+4. **Identity Verification:** Verified successful domain authentication via the `whoami` command-line utility and confirmed the active computer object lease within Active Directory Users and Computers (ADUC).
