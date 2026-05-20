@@ -29,6 +29,7 @@ To design, deploy, and harden a secure enterprise network infrastructure entirel
 4. **Network Hardening & Static IP:** Modified the Domain Controller's network interface card from a dynamic lease to a **Static Internal IP assignment** (`10.0.0.4`) to maintain consistent DNS resolution.
 5. **Custom DNS Routing:** Altered the entire VNet's configuration from default Azure DNS to **Custom DNS**, pointing directly to `10.0.0.4` to ensure future domain client joins resolve correctly.
 
+![Azure Deployment Complete](screenshots/domain_VM_configuration.png)
 ---
 
 ## Phase 2: Active Directory Domain Services (AD DS) Installation
@@ -39,6 +40,9 @@ To design, deploy, and harden a secure enterprise network infrastructure entirel
 3. **Automated Provisioning:** Executed an administrative PowerShell automation script to dynamically build out the enterprise tree structure, provisioning core Organizational Units (OUs) including *Information Technology, Accounting, Marketing, Human Resources,* and *Executive*.
 4. **Bulk Identity Injection:** Automated the creation of simulated employee corporate accounts, injecting them into their respective departmental OUs with pre-configured secure authentication profiles.
 
+![Active Directory Installation](screenshots/ad_ds_installed.png)
+![Automated Account Provisioning](screenshots/automated_provisioning.png)
+![Active Directory Users](screenshots/user_provisioning_example.png)
 ---
 
 ## Phase 3: Client Workstation Provisioning & Domain Integration
@@ -49,6 +53,8 @@ To design, deploy, and harden a secure enterprise network infrastructure entirel
 3. **Enterprise Domain Join:** Modified the workstation's security boundary from a local workgroup to the `labdomain.local` domain. Authenticated using domain administrator credentials to establish a secure trust relationship.
 4. **Identity Verification:** Verified successful domain authentication via the `whoami` command-line utility and confirmed the active computer object lease within Active Directory Users and Computers (ADUC).
 
+![DNS Routing](screenshots/workstation_ipconfiguration.png)
+![Domain Join Success](screenshots/domain_join_success.png)
 --- 
 
 ## Phase 4: Group Policy Object (GPO) Hardening & Security Engineering
@@ -59,5 +65,10 @@ To design, deploy, and harden a secure enterprise network infrastructure entirel
 3. **Brute-Force Mitigation:** Engineered an Account Lockout Policy establishing a strict threshold of **5 invalid logon attempts**, dropping a temporary 30-minute lockout block to mitigate automated password-spraying attacks.
 4. **Endpoint Verification:** Forced an immediate policy synchronization across the enterprise tree using `gpupdate /force` and verified active local policy parameters on `Workstation-01` via the `net accounts` command-line utility.
 
+![Hardening via Password Policy in GPMC](screenshots/password_policy_after.png)
+![Hardening via Account Lockout Policy via GPMC](screenshots/account_lockout_after.png)
+![GP Update via Command Prompt](screenshots/gpupdate.png)
+![GP End-User Update via Command Prompt](screenshots/gpupdate_workstation1.png)
+![GP End-User Verification via net account command](screenshots/updated_gp_workstation1.png)
 --- 
 
