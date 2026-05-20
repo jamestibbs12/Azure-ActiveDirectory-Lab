@@ -48,3 +48,16 @@ To design, deploy, and harden a secure enterprise network infrastructure entirel
 2. **Network Alignment:** Attached the workstation directly to `AD-VNet`, allowing it to automatically inherit the custom DNS routing pointing to the Domain Controller (`10.0.0.4`).
 3. **Enterprise Domain Join:** Modified the workstation's security boundary from a local workgroup to the `labdomain.local` domain. Authenticated using domain administrator credentials to establish a secure trust relationship.
 4. **Identity Verification:** Verified successful domain authentication via the `whoami` command-line utility and confirmed the active computer object lease within Active Directory Users and Computers (ADUC).
+
+--- 
+
+## Phase 4: Group Policy Object (GPO) Hardening & Security Engineering
+*Status: Complete*
+
+1. **Centralized Policy Enforcement:** Utilized the Group Policy Management Console (GPMC) on the `DomainController` to modify the Default Domain Policy, ensuring structural security parameters propagate to all domain assets.
+2. **Password Complexity Hardening:** Enforced a strict corporate credential policy requiring a **14-character minimum length** alongside mandatory alphanumeric and special character complexity metrics (aligning with CompTIA Security+ Domain 4.6).
+3. **Brute-Force Mitigation:** Engineered an Account Lockout Policy establishing a strict threshold of **5 invalid logon attempts**, dropping a temporary 30-minute lockout block to mitigate automated password-spraying attacks.
+4. **Endpoint Verification:** Forced an immediate policy synchronization across the enterprise tree using `gpupdate /force` and verified active local policy parameters on `Workstation-01` via the `net accounts` command-line utility.
+
+--- 
+
