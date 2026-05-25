@@ -72,3 +72,7 @@ To design, deploy, and harden a secure enterprise network infrastructure entirel
 ![GP End-User Verification via net account command](screenshots/updated_gp_workstation1.png)
 --- 
 
+---
+
+## 👥 Credits & Attributions
+* **Implementation & Analysis:** Independent lab execution, environment configuration, and documentation completed by [James Tibbs](https://github.com/jamestibbs12).
