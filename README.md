@@ -66,9 +66,13 @@ To design, deploy, and harden a secure enterprise network infrastructure entirel
 4. **Endpoint Verification:** Forced an immediate policy synchronization across the enterprise tree using `gpupdate /force` and verified active local policy parameters on `Workstation-01` via the `net accounts` command-line utility.
 
 ![Hardening via Password Policy in GPMC](screenshots/password_policy_after.png)
+
 ![Hardening via Account Lockout Policy via GPMC](screenshots/account_lockout_after.png)
+
 ![GP Update via Command Prompt](screenshots/gpupdate.png)
+
 ![GP End-User Update via Command Prompt](screenshots/gpupdate_workstation1.png)
+
 ![GP End-User Verification via net account command](screenshots/updated_gp_workstation1.png)
 --- 
 
